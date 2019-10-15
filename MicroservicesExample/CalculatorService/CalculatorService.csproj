@@ -1,24 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="acontract.proto" />
+    <None Remove="calculatorservicecontract.proto" />
+    <None Remove="summationservice.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="calculatorservicecontract.proto" />
+    <Protobuf Include="summationservice.proto" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.10.0" />
-    <PackageReference Include="Grpc.Core" Version="2.24.0" />
+    <PackageReference Include="Grpc" Version="2.24.0" />
     <PackageReference Include="Grpc.Tools" Version="2.24.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Protobuf Include="acontract.proto" />
   </ItemGroup>
 
 </Project>

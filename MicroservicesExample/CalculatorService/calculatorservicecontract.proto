@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CalculatorService.Generated";
+
+package proto;
+
+service CalculatorService
+{
+	rpc Calculate(NumberRequest) returns (NumberResponse){}
+}
+
+message NumberRequest
+{
+	int32 number = 1;
+
+    CalculationOption calcoption = 2;
+}
+
+message NumberResponse
+{
+	int32 number = 1;
+}
+
+enum CalculationOption
+{
+        Sum = 0;
+        Multiply = 1;
+}
+

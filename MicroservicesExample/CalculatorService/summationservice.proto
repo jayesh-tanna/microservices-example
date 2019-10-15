@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "SummationService.Generated";
+
+package proto;
+
+service SummationService
+{
+	rpc Sum(NumberReq) returns (NumberRes){}
+}
+
+message NumberReq
+{
+	int32 number = 1;
+}
+
+message NumberRes
+{
+	int32 number = 1;
+}
+
