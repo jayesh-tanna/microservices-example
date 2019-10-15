@@ -15,7 +15,7 @@ namespace Consumer
         static async Task<int> Calc()
         {
             CalcServiceClient client = new CalcServiceClient();
-            var result = await client.CalcAsync(new CalculatorService.Generated.NumberRequest() { Number = 5, Calcoption = CalculatorService.Generated.CalculationOption.Sum });
+            var result = await client.CalcAsync(new CalculatorService.Generated.NumberRequest() { Number = 5, Calcoption = CalculatorService.Generated.CalculationOption.Multiply });
             return result.Number;
         }
     }

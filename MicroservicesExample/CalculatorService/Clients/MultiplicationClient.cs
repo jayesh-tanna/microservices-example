@@ -36,7 +36,7 @@ namespace CalculatorService.Clients
         {
             if (state)
                 _client = null;
-            ShutdownAsync();
+            ShutdownAsync().Wait();
         }
 
         private async Task ShutdownAsync()
