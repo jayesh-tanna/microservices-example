@@ -7,12 +7,14 @@
 
   <ItemGroup>
     <None Remove="calculatorservicecontract.proto" />
-    <None Remove="summationservice.proto" />
+    <None Remove="multiplicationservicecontract.proto" />
+    <None Remove="summationservicecontract.proto" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="calculatorservicecontract.proto" />
-    <Protobuf Include="summationservice.proto" />
+    <Protobuf Include="protos\calculatorservicecontract.proto" />
+    <Protobuf Include="protos\multiplicationservicecontract.proto" />
+    <Protobuf Include="protos\summationservicecontract.proto" />
   </ItemGroup>
 
   <ItemGroup>

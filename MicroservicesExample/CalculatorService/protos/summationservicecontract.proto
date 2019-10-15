@@ -18,4 +18,3 @@ message NumberRes
 {
 	int32 number = 1;
 }
-
