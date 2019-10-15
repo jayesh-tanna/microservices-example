@@ -3,7 +3,7 @@ using Grpc.Core;
 using System.Threading.Tasks;
 using static CalculatorService.Generated.CalculatorService;
 
-namespace CalculatorService.Clients
+namespace Consumer.Clients
 {
     //IDisposable
     public class CalcServiceClient

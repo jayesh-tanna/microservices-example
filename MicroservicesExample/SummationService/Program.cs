@@ -10,6 +10,8 @@ namespace SummationService
             SummationServiceServer server = new SummationServiceServer();
             server.Start();
             Console.WriteLine("Summation service is running...");
+            Console.WriteLine("Press any key to stop the server...");
+            Console.ReadKey();
         }
     }
 }
