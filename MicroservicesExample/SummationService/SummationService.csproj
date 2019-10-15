@@ -6,12 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="protos\summationservicecontract.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.10.0" />
     <PackageReference Include="Grpc" Version="2.24.0" />
     <PackageReference Include="Grpc.Tools" Version="2.24.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="protos\summationservicecontract.proto" />
   </ItemGroup>
 
 </Project>

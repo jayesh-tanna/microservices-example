@@ -3,8 +3,9 @@ using SummationService.Generated;
 using System.Threading.Tasks;
 using static SummationService.Generated.SummationService;
 
-namespace CalculatorService
+namespace CalculatorService.Clients
 {
+    //IDisposable
     public class SummationClient
     {
         private readonly SummationServiceClient _client;

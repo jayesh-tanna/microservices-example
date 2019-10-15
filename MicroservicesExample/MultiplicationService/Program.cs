@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultiplicationService.ServerImpl;
+using System;
 
 namespace MultiplicationService
 {
@@ -6,7 +7,9 @@ namespace MultiplicationService
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MultiplicationServiceServer server = new MultiplicationServiceServer();
+            server.Start();
+            Console.WriteLine("Multiplication service is running");
         }
     }
 }

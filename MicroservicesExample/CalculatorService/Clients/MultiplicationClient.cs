@@ -3,8 +3,9 @@ using MultiplicationService.Generated;
 using System.Threading.Tasks;
 using static MultiplicationService.Generated.MultiplicationService;
 
-namespace CalculatorService
+namespace CalculatorService.Clients
 {
+    //IDisposable
     public class MultiplicationClient
     {
         private readonly MultiplicationServiceClient _client;

@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using System.Threading.Tasks;
 
-namespace CalculatorService
+namespace CalculatorService.ServerImpl
 {
     public class CalculatorServer
     {
