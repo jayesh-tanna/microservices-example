@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SummationService.ServerImpl;
+using System;
 
 namespace SummationService
 {
@@ -6,7 +7,9 @@ namespace SummationService
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SummationServiceServer server = new SummationServiceServer();
+            server.Start();
+            Console.WriteLine("Summation service is running...");
         }
     }
 }

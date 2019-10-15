@@ -16,7 +16,7 @@ namespace CalculatorService.ServerImpl
             };
         }
 
-        public void Listen()
+        public void Start()
         {
             _server.Start();
         }

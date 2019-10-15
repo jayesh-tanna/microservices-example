@@ -1,13 +1,14 @@
-﻿using System;
+﻿using CalculatorService.ServerImpl;
+using System;
 
 namespace CalculatorService
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             CalculatorServer server = new CalculatorServer();
-            server.Listen();
+            server.Start();
             Console.WriteLine("Calculator service is listening...");
         }
     }
