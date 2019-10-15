@@ -1,26 +1,56 @@
 ﻿using Grpc.Core;
 using MultiplicationService.Generated;
+using System;
 using System.Threading.Tasks;
 using static MultiplicationService.Generated.MultiplicationService;
 
 namespace CalculatorService.Clients
 {
-    //IDisposable
-    public class MultiplicationClient
+    public class MultiplicationClient : IDisposable
     {
-        private readonly MultiplicationServiceClient _client;
-        private readonly Channel _channel;
+        private MultiplicationServiceClient _client;
+        private Channel _channel;
 
-        //parameterized constructor
-        public MultiplicationClient()
+        public MultiplicationClient() : this("localhost", 22222)
         {
-            _channel = new Channel("localhost", 22222, ChannelCredentials.Insecure);
+        }
+
+        public MultiplicationClient(string host, int port)
+        {
+            _channel = new Channel(host, port, ChannelCredentials.Insecure);
             _client = new MultiplicationServiceClient(_channel);
         }
 
         public async Task<NumberRes> GetMultiplicationAsync(NumberReq numberReq)
         {
             return await _client.MultiplyAsync(numberReq);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool state)
+        {
+            if (state)
+                _client = null;
+            ShutdownAsync();
+        }
+
+        private async Task ShutdownAsync()
+        {
+            if (_channel != null)
+            {
+                await _channel.ShutdownAsync();
+                _channel = null;
+            }
+        }
+
+        ~MultiplicationClient()
+        {
+            Dispose(false);
         }
     }
 }

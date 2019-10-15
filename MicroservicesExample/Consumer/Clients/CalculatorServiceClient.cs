@@ -1,25 +1,57 @@
 ﻿using CalculatorService.Generated;
 using Grpc.Core;
+using System;
 using System.Threading.Tasks;
 using static CalculatorService.Generated.CalculatorService;
 
 namespace Consumer.Clients
 {
-    //IDisposable
-    public class CalcServiceClient
+    public class CalcServiceClient : IDisposable
     {
-        private readonly CalculatorServiceClient _client;
-        private readonly Channel _channel;
+        private CalculatorServiceClient _client;
+        private Channel _channel;
 
-        public CalcServiceClient()
+        public CalcServiceClient() : this("localhost", 11111)
         {
-            _channel = new Channel("localhost", 11111, ChannelCredentials.Insecure);
+        }
+
+        public CalcServiceClient(string host, int port)
+        {
+            _channel = new Channel(host, port, ChannelCredentials.Insecure);
             _client = new CalculatorServiceClient(_channel);
+            
         }
 
         public async Task<NumberResponse> CalcAsync(NumberRequest req)
         {
             return await _client.CalculateAsync(req);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool state)
+        {
+            if (state)
+                _client = null;
+            ShutdownAsync();
+        }
+
+        private async Task ShutdownAsync()
+        {
+            if (_channel != null)
+            {
+                await _channel.ShutdownAsync();
+                _channel = null;
+            }
+        }
+
+        ~CalcServiceClient()
+        {
+            Dispose(false);
         }
     }
 }
